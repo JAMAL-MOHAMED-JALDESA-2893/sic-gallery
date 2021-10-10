@@ -18,5 +18,10 @@ class Category(models.Model):
         cls.objects.filter(id=id).update(image=value)
 
     def __str__(self):
-        return self.categoryName     
+        return self.categoryName   
+
+
+class Location(models.Model):
+    locationName = models.CharField(max_length=30)
+
 
