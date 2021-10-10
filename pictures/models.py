@@ -5,3 +5,10 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 class Category(models.Model):
     categoryName = models.CharField(max_length=30)
+
+    def saveCategory(self):
+        self.save()
+
+    def deleteCategory(self):
+        self.delete()
+
