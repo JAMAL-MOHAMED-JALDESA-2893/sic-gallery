@@ -30,4 +30,9 @@ class Location(models.Model):
     def deleteLocation(self):
         self.delete()
 
+    @classmethod
+    def updateLocation(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
 
+    def __str__(self):
+        return self.locationName
