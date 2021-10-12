@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import dj_database_url
+from decouple import config,Csv
+import cloudinary_storage
+
 
 
 
@@ -30,10 +34,38 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b=vp#79-s+&7+_44fvl-n(p72$kn@!^8m25q4+-4xg5*mcyodv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+MODE=config("MODE", default="dev")
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG', True)
+# development
+if config('MODE')=="dev":
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+           'HOST': config('127.0.0.1'),
+           'PORT': '',
+       }
+       
+   }
+# production
+else:
+   DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+   }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+# Application definition
 
 ALLOWED_HOSTS = []
 
@@ -49,6 +81,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pictures',
     'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -158,7 +191,6 @@ cloudinary.config(
   cloud_name = "dikqleict", 
   api_key = "943276256896651", 
   api_secret = "cNswEUjt2W1OzESAFSuL3EtxXuE", 
-
 )
 
 # Activate Django-Heroku.
