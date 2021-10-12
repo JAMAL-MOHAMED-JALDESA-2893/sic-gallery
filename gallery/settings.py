@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-
+# import django_heroku
 
 import cloudinary
 import cloudinary.uploader
@@ -124,7 +124,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -138,12 +138,21 @@ STATICFILES_DIRS = [
 ]
 
 
-cloudinary.config(
-  cloud_name = "dnihjnbo7",
-  api_key = "236261431842794",
-  api_secret = "bnjr33qFev8DnKoymfU3AD2ZcKE"
-)
+
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+cloudinary.config( 
+  cloud_name = "dikqleict", 
+  api_key = "943276256896651", 
+  api_secret = "cNswEUjt2W1OzESAFSuL3EtxXuE", 
+
+)
+
+# Activate Django-Heroku.
+# django_heroku.settings(locals())

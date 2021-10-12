@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyGallery</title>
+    <title>sicGallery</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         {% block content %}
         {{block.super}}
-        <h1 class='text-center'> My Gallery</h1> 
+      
         {%for location in locations %}
         <a href="/location/{{location.locationName}}" class="pl-3"> {{location.locationName}}</a> 
         {%endfor%}

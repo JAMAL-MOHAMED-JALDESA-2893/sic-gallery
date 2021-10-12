@@ -8,14 +8,14 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark default-color justify-content-between">
+    <nav class="navbar navbar-dark grey justify-content-between">
         <a class="navbar-brand" href="{% url 'pictures' %}"><b><i> sicGallery</i></b></a>
         <form class="form-inline my-1" role = "search" action="{% url 'search_results'%}">
             <div class="md-form form-sm my-0">
                 <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" name=category
                     aria-label="Search">
             </div>
-            <button class="btn btn-secondary" type="submit">Search</button>
+            <button class="btn btn-outline-dark" type="submit">Search</button>
         </form>
     </nav>
 

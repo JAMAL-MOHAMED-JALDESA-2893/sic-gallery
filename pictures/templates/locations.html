@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Gallery.</title>
+    <title>SicGallery</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         {% block content %}
         {{block.super}}
-        <h1 class='text-center'> My Gallery</h1>
+      
         <hr>
         <div class="container-fluid">
             <div class="row">
@@ -53,8 +53,7 @@
                                         <div class="col-sm">Description: {{location.imageDescription}}</div>
                                         <div class="col-sm">Location: {{location.imageLocation}}</div>
                                     </div>
-                                    <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                   
                                 </div>
                             </div>
                         </div>

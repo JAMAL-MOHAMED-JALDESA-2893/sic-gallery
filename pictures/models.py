@@ -1,5 +1,4 @@
 from django.db import models
-import cloudinary
 from cloudinary.models import CloudinaryField
 
 
@@ -42,10 +41,10 @@ class Location(models.Model):
 
 class Image(models.Model):
     imageName = models.CharField(max_length=30)
-    imageDescription = models.CharField(max_length=30)
+    imageDescription = models.CharField(max_length=30,null=True)
     imageLocation = models.ForeignKey(Location,on_delete = models.CASCADE)
     imageCategory = models.ForeignKey(Category,on_delete = models.CASCADE)
-    image = CloudinaryField('images')  
+    image = CloudinaryField('image')  
 
 
     def saveImage(self):
