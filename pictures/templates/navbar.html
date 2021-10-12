@@ -9,7 +9,9 @@
 
 <body>
     <nav class="navbar navbar-dark grey justify-content-between">
-        <a class="navbar-brand" href="{% url 'pictures' %}"><b><i> sicGallery</i></b></a>
+      <div><a class="navbar-brand" href="{% url 'pictures' %}"><b><i> sicGallery</i></b></a>
+        <a class="navbar-brand" href="{% url 'pictures' %}"><b><i> Home</i></b></a></div>
+        
         <form class="form-inline my-1" role = "search" action="{% url 'search_results'%}">
             <div class="md-form form-sm my-0">
                 <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" name=category

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="" style="font-size: 20px; font-family: 'Itim', cursive;">
+    <div class="" style="font-size: 20px; font-family:  cursive; color: black;">
         {%extends 'base.html' %}
 
         {% block content %}
@@ -54,13 +54,13 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="row">
-                                        <div class="col-sm">Description: {{pic.imageDescription}}</div>
-                                        <div class="col-sm" style="color: black;">Location: {{pic.imageLocation}}</div>
+                                       
+                                        <div class="col-sm" style="color: rgb(26, 46, 22);">Location: {{pic.imageLocation}}</div>
+                                        <br>
                                         <div class="col-sm">Category: {{pic.imageCategory}}</div>
                                     </div>
-                                    <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                </div>
+                                   
+                                 </div>
                             </div>
                         </div>
                     </div>
